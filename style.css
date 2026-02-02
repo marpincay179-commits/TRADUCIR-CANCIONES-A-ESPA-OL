@@ -1,0 +1,331 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  --neon-pink:   #ff6fbd;       /* rosa suave, no chillón */
+  --neon-violet:#b07fff;       /* morado elegante        */
+  --neon-blue:   #6bb8ff;       /* azul frío              */
+  --glow-pink:   rgba(255, 111, 189, 0.25);
+  --glow-violet:rgba(176, 127, 255, 0.22);
+  --glow-blue:   rgba(107, 184, 255, 0.20);
+  --surface:     rgba(14, 18, 30, 0.72);   /* fondo cristal oscuro */
+  --border-glow: rgba(176, 127, 255, 0.18);
+}
+/* ===== BODY ===== */
+body {
+  margin: 0;
+  font-family:'Poppins', Arial, sans-serif;
+   background: linear-gradient(175deg, #0d1a2a 0%, #07101a 60%, #04141c 100%);
+
+  color: #fff;
+  overflow: hidden; /* elimina scroll general */
+}
+
+/* ===== APP ===== */
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+}
+
+/* ===== SUBIR ===== */
+.upload-box {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.upload-btn {
+   background: linear-gradient(135deg, #2a2a3e, #353550);
+  padding: 10px 18px;
+  border: 1px solid rgba(255,111,189,0.30);
+  box-shadow: 0 2px 12px rgba(255,111,189,0.22);
+  border-radius: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  display: inline-block;
+}
+.upload-btn:hover {
+  border-color: rgba(255,111,189,0.50);
+  box-shadow: 0 2px 18px rgba(255,111,189,0.32);
+}
+
+/* ===== VIDEO ===== */
+.video-wrapper {
+  width: 320px;
+  height: 180px;
+  margin: 8px auto;
+  border: 1px solid var(--border-glow);
+  background: #0a0e1a;
+  box-shadow:
+    0 0  8px var(--glow-violet),   /* aura interior */
+    0 0 20px rgba(176,127,255,0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0; /*  nunca desaparece */
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: black;
+}
+
+/* ===== EDITOR ===== */
+/* ===== EDITOR ===== */
+.editor {
+  width: 320px;
+  margin: 8px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* INPUTS */
+.editor input {
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+}
+
+/* FILA DE BOTONES */
+.editor-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+/* BOTONES */
+.editor-buttons button {
+  flex: 1;
+  background: linear-gradient(135deg, #6a5acd, #7c7cff);
+  color: #fff;
+  border: 1px solid rgba(124,124,255,0.30);
+  box-shadow: 0 2px 10px rgba(124,124,255,0.18)
+  padding: 10px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.editor-buttons button:hover {
+  border-color: rgba(124,124,255,0.55);
+  box-shadow: 0 2px 16px rgba(124,124,255,0.30);
+}
+
+/* OCULTAR EDITOR */
+.editor.hidden {
+  display: none;
+}
+
+/* ===== LETRA (SCROLL SOLO AQUÍ) ===== */
+.lyrics-container {
+  flex: 1;                    /* ocupa solo el espacio libre */
+  max-width: 420px;
+  margin: auto;
+  padding: 14px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(20, 24, 40, 0.88) 0%,
+      rgba(14, 18, 30, 0.82) 100%
+    );
+    border: 1px solid rgba(176, 127, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+  /* backdrop muy sutil para si hay algo detrás */
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter:         blur(4px);
+  border-radius: 16px;
+  overflow-y: auto;           /*  scroll interno */
+}
+
+/* ===== LÍNEAS ===== */
+.line {
+  margin-bottom: 16px;
+  text-align: justify;
+}
+
+.line.active {
+  background: rgba(255,255,255,0.12);
+  padding: 8px;
+  border-radius: 10px;
+}
+
+/* ===== TEXTO ===== */
+.english {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 0 12px rgba(107,184,255,0.12);
+}
+
+.phonetic {
+  color: var(--neon-violet);
+  text-shadow: 0 0 8px rgba(176,127,255,0.15);
+  font-size: 15px;
+  
+}
+
+.spanish {
+  color: #fff;
+  font-size: 15px;
+}
+
+/* ===== BOTÓN AJUSTE ===== */
+#adjustBtn {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, #2a2a3e, #353550);
+  color: #fff;
+  border: none;
+  border-radius: 22px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+#adjustBtn:hover {
+  border-color: rgba(176,127,255,0.40);
+  box-shadow: 0 2px 12px rgba(176,127,255,0.15);
+}
+/* ===== KARAOKE ===== */
+.word {
+  color: #8a9ab8;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.word.active {
+  color: var(--neon-pink);
+  text-shadow:
+    0 0  6px var(--glow-pink),
+    0 0 14px rgba(255,111,189,0.18);
+  transform: scale(1.15);
+}
+.lyrics-container::-webkit-scrollbar {
+  display: none;
+}
+.line.active {
+  background: linear-gradient(
+    90deg,
+    rgba(176,127,255,0.10) 0%,
+    rgba(14, 18, 30, 0.50) 100%
+  );
+  border-left: 3px solid var(--neon-violet);
+  border-radius: 0 10px 10px 0;   /* solo esquinas derecha */
+  padding: 8px 8px 8px 10px;
+  box-shadow: 0 0 10px rgba(176,127,255,0.08);
+}
+
+/* BOTÓN VER / EDITAR */
+.toggle-editor-btn {
+  width: 320px;
+  margin: 6px auto;
+  padding: 8px;
+  background: linear-gradient(135deg, #2a2a3e, #353550);
+  color: #fff;
+  border: 1px solid rgba(176,127,255,0.20);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.toggle-editor-btn:hover {
+  opacity: 0.9;
+  border-color: rgba(176,127,255,0.40);
+  box-shadow: 0 2px 12px rgba(176,127,255,0.15);
+}
+
+/* ===== OCULTAR EDITOR ===== */
+.editor.hidden {
+  display: none;
+}
+/* ===== BOTÓN TIEMPO ===== */
+#addLine {
+  background: linear-gradient(135deg, #6a5acd, #7c7cff);
+  border: 1px solid rgba(124,124,255,0.30);
+  box-shadow: 0 2px 10px rgba(124,124,255,0.18);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+#addLine:hover {
+  opacity: 1;   /* neutraliza el opacity:0.9 anterior */
+  border-color: rgba(124,124,255,0.55);
+  box-shadow: 0 2px 16px rgba(124,124,255,0.30);
+  cursor:pointer;
+}
+/* =================================================
+   RESPONSIVE LAYOUT – SOLO AJUSTES
+   ================================================= */
+
+/* 🔹 Anchos fluidos (reemplazan rigidez 320px) */
+.video-wrapper,
+.editor,
+.toggle-editor-btn {
+  width: min(92vw, 360px);
+}
+
+/* Video mantiene proporción */
+.video-wrapper {
+  height: calc(min(92vw, 360px) * 0.5625); /* 16:9 */
+}
+
+/* Letras alineadas con el video */
+.lyrics-container {
+  width: min(92vw, 360px);
+}
+
+/* 🔹 Tipografía fluida */
+.english {
+  font-size: clamp(18px, 4.5vw, 22px);
+}
+
+.phonetic,
+.spanish {
+  font-size: clamp(14px, 3.6vw, 16px);
+}
+
+/* 🔹 Pantallas MUY pequeñas (Android chicos) */
+@media (max-width: 360px) {
+  .app {
+    padding: 8px;
+  }
+
+  .video-wrapper {
+    border-radius: 10px;
+  }
+
+  .lyrics-container {
+    padding: 10px;
+  }
+
+  .line {
+    margin-bottom: 12px;
+  }
+}
+
+/* 🔹 Tablets / pantallas grandes */
+@media (min-width: 768px) {
+  .app {
+    align-items: center;
+  }
+
+  .video-wrapper,
+  .editor,
+  .lyrics-container,
+  .toggle-editor-btn {
+    width: min(70vw, 420px);
+  }
+
+  .video-wrapper {
+    height: calc(min(70vw, 420px) * 0.5625);
+  }
+}

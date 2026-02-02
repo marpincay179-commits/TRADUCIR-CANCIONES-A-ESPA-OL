@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Video Lyrics App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- SUBIR VIDEO -->
+    <div class="upload-box">
+      <label class="upload-btn">
+        Subir video
+        <input type="file" id="videoInput" accept="video/*" hidden>
+      </label>
+    </div>
+
+    <!-- VIDEO (SIEMPRE VISIBLE) -->
+    <div class="video-wrapper">
+      <video id="video" controls></video>
+    </div>
+
+    <!-- EDITOR -->
+     <!-- EDITOR (INICIA OCULTO) -->
+<!-- BOTÓN PARA MOSTRAR / OCULTAR EDITOR -->
+<button id="toggleEditor" class="toggle-editor-btn"> Editar letras</button>
+
+<!-- EDITOR (INICIA OCULTO) -->
+<div class="editor hidden" id="editor">
+  <input id="en" placeholder="Inglés">
+  <input id="ph" placeholder="Fonética">
+  <input id="es" placeholder="Español">
+
+  <button id="addLine">⏱️ Tiempo</button>
+</div>
+
+
+
+    <!-- LETRA (SCROLL INTERNO) -->
+    <div class="lyrics-container" id="lyrics"></div>
+
+    <button id="adjustBtn">⏪ Ajustar letras</button>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
